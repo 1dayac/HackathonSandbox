@@ -1,0 +1,126 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+ScreenManagement:
+    transition: FadeTransition()
+    WelcomeScreen:
+        id: welcome
+    MainScreen:
+    MotorScreen:
+    SpeechScreen:
+    ImageScreen:
+    BasicEvalScreen:
+
+
+<WelcomeScreen>:
+    name: 'welcome'
+    id: 'welcome'
+    BoxLayout:
+        orientation: 'vertical'
+        id: box
+
+        FillAbleTextInput:
+            id: name
+            hint_text: "Name"
+            on_parent: self.set_values_from_config()
+        FillAbleTextInput:
+            id: lastname
+            hint_text: "LastName"
+            on_parent: self.set_values_from_config()
+
+        FillAbleTextInput:
+            id: emergency
+            hint_text: "Emergency"
+            on_parent: self.set_values_from_config()
+
+        Button:
+            on_release: app.create_configuration()
+            text: 'Save Values'
+            font_size: 50
+            id: save_btn
+
+        Button:
+            on_release: app.root.current = 'main'
+            text: 'Start DeStroke'
+            font_size: 50
+            id: main_btn
+
+
+<MainScreen>:
+    name: 'main'
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            on_release: app.root.current = 'motor'
+            text: 'Motor Analysis'
+            font_size: 50
+
+        Button:
+            on_release: app.root.current = 'speech'
+            text: 'Speech Analysis'
+            font_size: 50
+
+        Button:
+            on_release: app.root.current = 'image'
+            text: 'Photo Analysis'
+            font_size: 50
+
+        Button:
+            on_release: app.root.current = 'basic_evaluation'
+            text: 'Basic Evaluation'
+            font_size: 50
+
+
+<MotorScreen>:
+    name: 'motor'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            id: x_label
+            text: 'X: '
+
+        Label:
+            id: y_label
+            text: 'Y: '
+
+        Label:
+            id: z_label
+            text: 'Z: '
+
+        Label:
+            id: accel_status
+            text: ''
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            padding: '4dp'
+
+            ToggleButton:
+                id: toggle_button
+                text: 'Start accelerometer'
+                on_press: root.do_toggle()
+
+<SpeechScreen>:
+    name: 'speech'
+
+    Button:
+        on_release: app.root.current = 'main'
+        text: 'back to the main screen'
+        font_size: 50
+
+<ImageScreen>:
+    name: 'image'
+
+    Button:
+        on_release: app.root.current = 'main'
+        text: 'back to the main screen'
+        font_size: 50
+
+<BasicEvalScreen>:
+    name: 'basic_evaluation'
+
+    Button:
+        on_release: app.root.current = 'main'
+        text: 'back to the main screen'
+        font_size: 50
