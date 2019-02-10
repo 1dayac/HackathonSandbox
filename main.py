@@ -18,7 +18,6 @@ from plyer import accelerometer
 from kivy.uix.textinput import TextInput
 from kivy.properties import StringProperty
 import speech_recognition as sr
-from multiprocessing import Pool
 
 
 r = sr.Recognizer()
