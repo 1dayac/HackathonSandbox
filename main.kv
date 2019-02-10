@@ -16,64 +16,85 @@ ScreenManagement:
     BoxLayout:
         orientation: 'vertical'
         id: box
+        AsyncImage:
+            id: img1
+            source: 'obj/logo.png'
+            height: '100'
+            size_hint: (1, 0.2)
 
         FillAbleTextInput:
             id: name
             hint_text: "Name"
             on_parent: self.set_values_from_config()
+            size_hint: (1, 0.1)
 
         FillAbleTextInput:
             id: lastname
             hint_text: "LastName"
             on_parent: self.set_values_from_config()
+            size_hint: (1, 0.1)
 
         FillAbleTextInput:
             id: emergency
             hint_text: "Emergency"
             on_parent: self.set_values_from_config()
+            size_hint: (1, 0.1)
 
         FillAbleTextInput:
             id: age
             hint_text: "Age"
             on_parent: self.set_values_from_config()
+            size_hint: (1, 0.1)
 
 
         Button:
             on_release: app.create_configuration()
             text: 'Save Values'
-            font_size: 50
+            font_size: 30
             id: save_btn
+            size_hint: (1, 0.1)
 
         Button:
             on_release: app.root.current = 'main'
             text: 'Start DeStroke'
-            font_size: 50
+            font_size: 30
             id: main_btn
+            size_hint: (1, 0.1)
 
 
 <MainScreen>:
     name: 'main'
     BoxLayout:
         orientation: 'vertical'
+        AsyncImage:
+            id: img1
+            source: 'obj/logo.png'
+            height: '100'
+            size_hint: (1, 0.2)
+
         Button:
             on_release: app.root.current = 'motor'
             text: 'Motor Analysis'
             font_size: 50
+            size_hint: (1, 0.2)
 
         Button:
             on_release: app.root.current = 'speech'
             text: 'Speech Analysis'
             font_size: 50
+            size_hint: (1, 0.2)
 
         Button:
             on_release: app.root.current = 'image'
             text: 'Photo Analysis'
             font_size: 50
+            size_hint: (1, 0.2)
 
         Button:
             on_release: app.root.current = 'basic_evaluation'
             text: 'Basic Evaluation'
             font_size: 50
+            size_hint: (1, 0.2)
 
 
 <MotorScreen>:
@@ -116,6 +137,7 @@ ScreenManagement:
     name: 'speech'
     BoxLayout:
         orientation: 'vertical'
+
         RecordButton:
             id: record_button
             text: 'Check Speech Function'
