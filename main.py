@@ -18,7 +18,7 @@ from plyer import accelerometer
 from kivy.uix.textinput import TextInput
 from kivy.properties import StringProperty
 import speech_recognition as sr
-
+from audiostream import get_input
 
 r = sr.Recognizer()
 m = sr.Microphone()
